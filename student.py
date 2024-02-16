@@ -1,5 +1,5 @@
 class Student:
-    def __init__(self,name,house):
+    def __init__(self,name,house="c"):
         self.name = name
         self.house = house
 
@@ -7,7 +7,7 @@ class Student:
         return f"{self.name} from house : {self.house}"
     
 
-    @classmethod   
+    @classmethod
     def get(cls):
         name = input("Name : ")
         house = input("House : ")
@@ -38,21 +38,22 @@ class Student:
             raise ValueError("Invalid house")
         self._house = house
 
+#inheritance
 class Teacher(Student):
-    def __init__(self, name, house, subject): 
-       super().__init__(name, house)
+    def __init__(self, name, subject): 
+       super().__init__(name)
        self.subject = subject
 
     def __str__(self):
-        return f"{self.name} teaches : {self.subject} and the fee is {Teacher.fee()}"
+        return f"{self.name} teaches : {self.subject}"
     
-    def fee():
-       return f"{Student.get} 500 usd" 
+    #def fee():
+       #return f"{Student.get()} 500 usd" 
     
         
 def main():
-    #return Teacher.get()
-    return Student.get()
+    teacher = Teacher('jimmy', 'python')
+    return print(teacher)
 
 if __name__ == "__main__":
     main()
